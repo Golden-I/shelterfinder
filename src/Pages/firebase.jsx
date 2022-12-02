@@ -1,7 +1,7 @@
- import { initializeApp } from "firebase/App";
- 
- import "firebase/auth";
- import "firebase/firestore";
+ import { initializeApp } from "firebase/app";
+// import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+
+//  import "firebase/firestore/app";
 
 import {
   GoogleAuthProvider,
@@ -12,6 +12,7 @@ import {
   sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
+//firebase/auth
 import {
   getFirestore,
   query,
@@ -20,6 +21,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
+
 
   const firebaseConfig ={
     apiKey: "AIzaSyCKf6UkcBht3yV57gzKiBUk2hcBtYgZ2cw",
@@ -30,8 +32,9 @@ import {
     appId: "1:1075646502896:web:d3109b3628629ebb406f35",
     measurementId: "G-T3R7839VK6"
 };
-const app = initializeApp(firebaseConfig); //added
-
+const app = initializeApp(firebaseConfig); 
+const auth = getAuth(app);
+const db = getFirestore(app);
 const googleProvider = new GoogleAuthProvider();
 
 const signInWithGoogle = async () => {
@@ -62,6 +65,7 @@ const logInWithEmailAndPassword = async (email, password) => {
   }
 };
 const registerWithEmailAndPassword = async (name, email, password) => {
+
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
@@ -98,6 +102,6 @@ export {
   logout,
 };
 
-export const auth =firebaseApp.auth ();
-export const db = firestoreApp.firestore();
+// export const auth =firebaseApp.auth ();
+// export const db = firestoreApp.firestore();
 
