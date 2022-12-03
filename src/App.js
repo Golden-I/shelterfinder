@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Reset from "./Pages/Reset";
-import Dashboard from "./Pages/DashBoard";
+import Dashboard from "./Pages/Dashboard";
 
 function App() {
   return (
